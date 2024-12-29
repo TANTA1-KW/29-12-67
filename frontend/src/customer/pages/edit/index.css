@@ -1,0 +1,118 @@
+/* Set a global background color for the page */
+body {
+    background-color: #f5f5f5;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  /* Centering the card on the screen */
+  .card-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Styling for the card */
+  .ant-card {
+    width: 100%;
+    max-width: 800px;
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Title Style */
+  .ant-card h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  /* Divider Style */
+  .ant-divider {
+    border-color: #dcdcdc;
+  }
+  
+  /* Upload image container */
+  .upload-image {
+    text-align: center;
+  }
+  
+  /* Upload button */
+  .upload-image .ant-upload-select {
+    border: 2px dashed #ddd;
+    padding: 10px;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+  }
+  
+  /* Custom styles for the form items */
+  .ant-form-item-label {
+    font-weight: bold;
+    color: #555;
+  }
+  
+  /* Input Fields Styling */
+  .ant-input, .ant-input-number, .ant-select, .ant-input-password {
+    border-radius: 8px;
+  }
+  
+  /* Button Styling */
+  .ant-btn {
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-weight: 600;
+  }
+  
+  .ant-btn-primary {
+    background-color: #003366;
+    border-color: #003366;
+  }
+  
+  .ant-btn-primary:hover {
+    background-color: #003366;
+    border-color: #003366;
+  }
+  
+  /* Cancel Button Styling */
+  .ant-btn-default {
+    background-color: #f0f0f0;
+    border-color: #dcdcdc;
+  }
+  
+  .ant-btn-default:hover {
+    background-color: #e6e6e6;
+  }
+  
+  /* Space between buttons */
+  .ant-space {
+    margin-top: 40px;
+  }
+  
+  /* Add some margin to the input fields */
+  .ant-form-item {
+    margin-bottom: 16px;
+  }
+  
+  /* Styling for form error message */
+  .ant-form-item-explain {
+    color: red;
+    font-size: 12px;
+  }
+  
+  /* Responsiveness: Ensure layout adapts to smaller screens */
+  @media (max-width: 768px) {
+    .ant-card {
+      padding: 15px;
+    }
+  
+    .ant-col-12 {
+      width: 100%;
+    }
+  }
+  

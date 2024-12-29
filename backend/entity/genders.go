@@ -8,6 +8,6 @@ type Genders struct {
 
    gorm.Model
 
-   Gender string
+   Gender string `json:"gender"`
 
 }

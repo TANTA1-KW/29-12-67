@@ -27,7 +27,7 @@ func SetupDatabase() {
    setup.SetupPaymentDatabase(db)
    setup.SetupPromotionDatabase(db)
    setup.SetupReviewDatabase(db)
-   SetupUserDatabase()
+   SetupAllUsersDatabase()
 
 
 	fmt.Println("Sample data has been added to the database.")

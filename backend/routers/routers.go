@@ -2,17 +2,26 @@ package routers
 
 import (
 	"net/http"
-	"project-se67/controller/customer"
-	"project-se67/controller/food_service"
+	"project-se67/controller/customers"
 	"project-se67/controller/genders"
+	
+
+	"project-se67/controller/employees"
+	"project-se67/controller/roles"
+    "project-se67/controller/status"
+	
+	"project-se67/controller/food_service"
 	"project-se67/controller/payment"
+
 	"project-se67/controller/promotion/discount_type"
 	"project-se67/controller/promotion/promotion"
 	"project-se67/controller/promotion/promotion_status"
 	"project-se67/controller/promotion/promotion_type"
 	"project-se67/controller/promotion/promotion_used"
+
 	"project-se67/controller/review/review"
 	"project-se67/controller/review/review_type"
+
 	"project-se67/middlewares"
 
 	"github.com/gin-gonic/gin"
@@ -26,8 +35,9 @@ func SetupRouter() *gin.Engine {
 	r.Use(middlewares.CORSMiddleware()) // ใช้งาน CORS middleware
 
 	// Auth Route
-	r.POST("/signup", customer.SignUp)
-	r.POST("/signin", customer.SignIn)
+	r.POST("/signup", customers.SignUp)
+	r.POST("/signupEm", employees.SignUpEmployee)
+	r.POST("/signin", customers.SignIn)
 
 	// เส้นทางสำหรับการสมัครและลงชื่อเข้าใช้
 	router := r.Group("/")
@@ -35,10 +45,19 @@ func SetupRouter() *gin.Engine {
 		router.Use(middlewares.Authorizes())
 
 		// User Route
-		router.PUT("/user/:id", customer.Update)
-		router.GET("/users", customer.GetAll)
-		router.GET("/user/:id", customer.Get)
-		router.DELETE("/user/:id", customer.Delete)
+		router.PUT("/user/:id", customers.Update)
+		router.GET("/users", customers.GetAll)
+		router.GET("/user/:id", customers.Get)
+		router.DELETE("/user/:id", customers.Delete)
+
+		//Employee Route
+		router.PUT("/employee/:id", employees.Update)
+		router.GET("/employees", employees.GetAll)
+		router.GET("/employee/:id", employees.Get)
+		router.DELETE("/employee/:id", employees.Delete)
+
+		router.GET("/roles", roles.GetAll)
+		router.GET("/stat", status.GetAll)
 
 		// เส้นทางการจัดการ payment
 		router.GET("/food-service-payments", payment.GetAllFoodServicePayments)

@@ -1,30 +1,28 @@
 package entity
 
 import (
-	"gorm.io/gorm"
 	"time"
+
+	"gorm.io/gorm"
 )
 
 type Customers struct {
 	gorm.Model
 
-	FirstName string `json:"first_name"`
+	FirstName   string  `json:"first_name" valid:"required~FirstName is required"`
+	LastName    string  `json:"last_name" valid:"required~LastName is required"`
+	Email       string    `json:"email" valid:"required~Email is required, email~Email is invalid"`
+	Phone       string    `json:"phone" valid:"required~Phone is required, stringlength(10|10)"`
+	Age         uint8     `json:"age" valid:"required~Age is required,range(1|150)"`
+	Address     string    `json:"Address" valid:"required~Address is required"`
+	BirthDay    time.Time `json:"birthday" valid:"required~BirthDay is required"`
+	Password    string    `json:"-" valid:"required~Password is required"`
+	Picture     string  `json:"picture" gorm:"type:longtext" `
 
-	LastName string `json:"last_name"`
+    GenderID  uint      `json:"gender_id" valid:"required~GenderID is required"`
+    Gender    *Genders  `gorm:"foreignKey: gender_id" json:"gender"`
 
-	Email string `json:"email"`
+	RoleID    uint      `json:"role_id" valid:"required~RoleID is required"`
+	Role    *Roles  `gorm:"foreignKey: role_id" json:"role"`
 
-	Age uint8 `json:"age"`
-
-	Password string `json:"-"`
-
-	BirthDay time.Time
-
-	GenderID uint
-
-	Gender *Genders `gorm:"foreignKey: gender_id"`
-
-	PhoneNumber string `json:"phone_number"`
-
-	Picture string `json:"picture" gorm:"type:longtext"`
 }

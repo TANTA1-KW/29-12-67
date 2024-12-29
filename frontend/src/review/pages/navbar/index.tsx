@@ -42,6 +42,22 @@ const Navbar: React.FC = () => {
             Food-Service
           </button>
         </Link>
+        <Link to="/employee">
+          <button
+            className={`navbaradmin-button ${active === "Employee" ? "active" : ""}`}
+            onClick={() => handleButtonClick("Employee")}
+          >
+            Employee
+          </button>
+        </Link>
+        <Link to="/customer">
+          <button
+            className={`navbaradmin-button ${active === "Customer" ? "active" : ""}`}
+            onClick={() => handleButtonClick("Customer")}
+          >
+            Customer
+          </button>
+        </Link>
         <Link to="/contact">
           <button
             className={`navbaradmin-button ${active === "contact" ? "active" : ""}`}
@@ -50,6 +66,7 @@ const Navbar: React.FC = () => {
             Contact Me
           </button>
         </Link>
+
       </div>
       <div className="navbaradmin-icons">
         <i className="navbaradmin-icon search-icon">🔍</i>
